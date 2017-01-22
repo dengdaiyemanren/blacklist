@@ -26,13 +26,22 @@ public class LoginController {
 	private UserService userService;
 	
 	
+	
+	
+	@GetMapping(params = "type=login")
+	public ModelAndView loginagain(HttpSession httpSession) {
+
+		return new ModelAndView("login/home", "LoginInValue", new LoginInValue());
+
+	}
+	
 	@GetMapping
 	public ModelAndView login(HttpSession httpSession) {
 		
 		
-		/*httpSession.removeAttribute("errorLogin");
+		httpSession.removeAttribute("errorLogin");
 		httpSession.removeAttribute("user");
-		httpSession.removeAttribute("successLogin");*/
+		httpSession.removeAttribute("successLogin");
 		
 		return new ModelAndView("login/home", "LoginInValue", new LoginInValue() );
 		
@@ -58,7 +67,7 @@ public class LoginController {
 			req.getSession().removeAttribute("successLogin");
 			
 			
-			return "redirect:/login";
+			return "redirect:/login?type=login";
 		}
 		else
 		{
@@ -76,7 +85,7 @@ public class LoginController {
 				req.getSession().removeAttribute("user");
 				req.getSession().removeAttribute("successLogin");
 				
-				return "redirect:/login";
+				return "redirect:/login?type=login";
 			}
 			
 			
