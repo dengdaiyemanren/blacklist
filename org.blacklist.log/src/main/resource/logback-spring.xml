@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml" />
+
+    <springProfile name="production">
+        <appender name="StackRollingFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <File>d:/blacklist_log.log</File>
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <FileNamePattern>/tmp/blacklist_log.%d{yyyy-MM-dd}.log</FileNamePattern>
+                <maxHistory>3000</maxHistory>
+            </rollingPolicy>
+            <encoder>
+                <Pattern>%d{YYYY-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{35} - %msg %n</Pattern>
+            </encoder>
+        </appender>
+    </springProfile>
+
+    <springProfile name="development">
+        <root level="DEBUG">
+            <appender-ref ref="CONSOLE" />
+        </root>
+    </springProfile>
+
+    <springProfile name="production">
+        <root level="DEBUG">
+            <appender-ref ref="CONSOLE" />
+            <appender-ref ref="StackRollingFileAppender" />
+        </root>
+         
+    </springProfile>
+
+    <logger name="org.blacklist" level="DEBUG"/>
+
+</configuration>

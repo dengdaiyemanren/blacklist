@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.blacklist</groupId>
+    <artifactId>org.blacklist</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <groupId>org.blacklist.web</groupId>
+  <artifactId>org.blacklist.web</artifactId>
+  <name>org.blacklist.web</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <dependencies>
+    
+       <dependency>
+     	 <groupId>org.blacklist.jpa</groupId>
+  		 <artifactId>org.blacklist.jpa</artifactId>
+  		 <version>${version}</version>
+		</dependency>
+    
+    	<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		
+    
+    <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			  <groupId>org.blacklist.log</groupId>
+ 			  <artifactId>org.blacklist.log</artifactId>
+ 			  <version>${version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		
+			<dependency>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>springloaded</artifactId>
+                    </dependency>
+                    
+  </dependencies>
+  <packaging>jar</packaging>
+
+  
+  <build>
+  <pluginManagement> 
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+			<!--  <plugin>
+              <groupId>org.zeroturnaround</groupId>
+              <artifactId>javarebel-maven-plugin</artifactId>
+              <version>1.0.5</version>
+              <executions>
+                  <execution>
+                     <id>generate-rebel-xml</id>
+                     <phase>process-resources</phase>
+                     <goals>
+                         <goal>generate</goal>
+                     </goals>
+                  </execution>
+              </executions>
+           </plugin> -->
+           
+		</plugins>
+		</pluginManagement> 
+	</build>
+</project>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layout">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"
+	href="../../css/bootstrap.min.css"  />
+<script src="../../js/jquery-3.1.1.js"></script>
+<script src="../../js/bootstrap.js"></script>	
+	
+<title>Search Result</title>
+</head>
+<body>
+<div layout:fragment="content" class="container">
+       
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<!--   <div class="row" >
+     <div class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title">结果</h3>
+              <br/>
+            </div>
+            <div class="panel-body">
+            
+            <div class="form-inline">
+             <label class="form-label pull-left">账号类型</label>
+   			 <input type="lable" class="form-control"/>
+   			 <label class="form-label pull-right">身份证</label>
+             </div>
+             <br/>
+             
+             <div class="form-inline">
+             <label class="form-label">评分</label>
+   			 <input type="lable" class="form-control"/>
+   			 <label class="form-label">XXXX</label>
+            </div>
+            <br/>
+            
+             <div class="form-inline">
+             <label class="form-label">评分理由</label>
+   			 <input type="lable" class="form-control"/>
+   			 <label class="form-label">拖欠工资</label>
+            </div>
+             <br/>
+             
+             <div class="form-inline " >
+             <label class="form-label">评分关键事件</label>
+   			 <input type="lable" class="form-control"/>
+   			 <label class="form-label">地点,任务</label>
+            </div>
+             <br/>
+            </div>
+      </div>
+  </div>     
+        -->
+        
+    <div class= "row"> 
+    	 <h1>搜索结果如下:</h1>
+    </div>
+
+   <div class= "row">
+  	 <ul class="nav nav-list"> 
+     	<li class="divider"></li>  
+  	</ul>
+  </div>     
+  <br/>
+  
+   <div class= "row">
+       <table class="table table-striped table-bordered table-hover">
+			<thead>
+				<tr>
+					<td>账号</td>
+					<td>得分</td>
+					<td>评分理由</td>
+					<td>查看关键事件描述</td>
+				</tr>
+			</thead>
+			
+			<tbody>
+			 	<tr th:if="${result.result.empty}">
+					<td colspan="4">抱歉,没有你要查找的内容!</td>
+				</tr> 
+				<tr th:each="item : ${result.result}">
+					<td th:text="${item.searchAccount}"></td>
+					<td th:text="${item.score}"></td>
+					<td th:text="${item.scoreDesc}"></td>
+					<td>
+					<!--  <a href="#" id="detailButton" class="btn btn-success" rel="popover" data-content="为我的网站创建一个提示框如此简单！" data-original-title="Bootstrap弹出框">查看详情</a>
+					  -->
+			  	 <!-- <input id="detailButton" type="button" class="btn btn-success" value="查看" title="Popover title" data-container="body" data-toggle="popover" data-content="为我的网站创建一个提示框如此简单！"></input>  -->
+					
+					<input id="detailButton" type="button" class="btn btn-success" data-toggle="modal" data-backdrop="false" data-target="#myModal" value="查看" />	
+					
+					</td>
+				</tr> 
+				
+				
+				
+			</tbody>
+		</table>
+		<div>
+		
+<!-- /.modal -->		
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					关键事件描述
+				</h4>
+			</div>
+			<div class="modal-body">
+			
+		<table class="table table-striped table-bordered table-hover">
+			<thead>
+				<tr>
+					<td>账号</td>
+					<td>事件</td>
+				</tr>
+			</thead>
+			
+			<tbody>
+			 	<tr th:if="${result.result.empty}">
+					<td colspan="4">抱歉,没有你要查找的内容!</td>
+				</tr> 
+				<tr th:each="item : ${result.result}">
+					<td th:text="${item.searchAccount}"></td>
+					<td th:text="${item.scoreReason}"></td>
+				</tr> 
+			</tbody>
+		</table>
+		
+		
+				
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<!-- <button type="button" class="btn btn-primary">
+					提交更改
+				</button> -->
+			</div>
+		</div><!-- /.modal-content -->
+	</div>
+</div>
+<!-- /.modal -->
+
+		
+		<script>
+		$(function (){ 
+			/* $("#detailButton").popover({placement:'left'}); */
+		   $("#detailButton").modal("show"); 
+			
+		});
+		</script>
+
+		<script type="text/javascript">
+	
+		/* $(document).ready(
+				function(){
+					
+					$("#detailButton").click(
+						function(){
+		window.open("page.html","newwindow","height=200,width=400,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no"); 
+					});
+				}
+			);
+		 */
+		 
+		 
+		</script>
+	
+		
+		
+		
+ 		<nav  class="pager">
+              <a href="home.html"  th:href="@{/search}" >返回</a>
+        </nav>
+
+		</div>
+
+		 <br/>
+		 <br/>
+		 <br/>
+		  <br/>
+		 <br/>
+		 <br/>
+		  <br/>
+		 <br/>
+		 <br/>
+		 <footer>
+        	  <p>&copy;Company 2017</p>
+  		 </footer>
+		
+	</div>
+	
+	
+</div>
+</body>
+
+</html>
