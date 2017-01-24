@@ -44,6 +44,9 @@
 	<td>
 		<a th:if="${#httpSession.getAttribute('successLogin') eq null}" href="home.html"  class="btn btn-success" th:href="@{/login}" >登录</a>			
 	</td>
+	<td>
+		<a th:if="${#httpSession.getAttribute('successLogin') eq null}" href="https://github.com/login/oauth/authorize?client_id=3001eb26d1ec8cb06cff"  class="btn btn-success" >github登录</a>			
+	</td>
 	
 	<td th:if="${#httpSession.getAttribute('successLogin')}">
 		<a  class="btn btn-success" th:href="@{/loginout}" >退出登录</a>

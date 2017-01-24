@@ -17,5 +17,6 @@
     <module>org.blacklist.web</module>
     <module>org.blacklist.log</module>
     <module>org.blacklist.jpa</module>
+    <module>org.blacklist.oauth2</module>
   </modules>
 </project>

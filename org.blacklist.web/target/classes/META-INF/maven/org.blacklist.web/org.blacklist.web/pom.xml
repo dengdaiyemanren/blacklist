@@ -21,7 +21,11 @@
   		 <artifactId>org.blacklist.jpa</artifactId>
   		 <version>${version}</version>
 		</dependency>
-    
+    <dependency>
+     	 <groupId>org.blacklist.oauth2</groupId>
+  		 <artifactId>org.blacklist.oauth2</artifactId>
+  		 <version>${version}</version>
+		</dependency>
     	<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
